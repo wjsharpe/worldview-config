@@ -61,9 +61,9 @@ def render(
     ] = Path.cwd(),
 ):
     if layer_config.suffix == ".csv":
-        df = pd.read_json(layer_config)
-    elif layer_config.suffix == ".json":
         df = pd.read_csv(layer_config)
+    elif layer_config.suffix == ".json":
+        df = pd.read_json(layer_config)
     else:
         raise ValueError("Unexpected file format %s", layer_config.suffix)
 
