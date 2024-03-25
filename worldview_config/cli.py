@@ -1,7 +1,6 @@
 import logging
 from pathlib import Path
 
-import pandas as pd
 import typer
 from typing_extensions import Annotated
 
@@ -50,7 +49,7 @@ def render(
     layer_config: Annotated[
         Path,
         typer.Argument(
-            help="A JSON or CSV file containing layer configuration.",
+            help="A JSON file containing layer configuration.",
         ),
     ],
     target: Annotated[
@@ -60,14 +59,6 @@ def render(
         ),
     ] = Path.cwd(),
 ):
-    date_cols = ["start_date", "end_date", "temporal_start", "temporal_end"]
-    if layer_config.suffix == ".csv":
-        df = pd.read_csv(layer_config, parse_dates=date_cols)
-    elif layer_config.suffix == ".json":
-        df = pd.read_json(layer_config, convert_dates=date_cols)
-    else:
-        raise ValueError("Unexpected file format %s", layer_config.suffix)
-
-    layers = df.to_dict("records")
-    layers = models.LayerConfigs.model_validate(layers)
+    with open(layer_config) as fp:
+        layers = models.LayerConfigs.model_validate_json(fp.read())
     render_templates(target=target, layers=layers)
