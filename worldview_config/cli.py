@@ -60,10 +60,11 @@ def render(
         ),
     ] = Path.cwd(),
 ):
+    date_cols = ["start_date", "end_date", "temporal_start", "temporal_end"]
     if layer_config.suffix == ".csv":
-        df = pd.read_csv(layer_config)
+        df = pd.read_csv(layer_config, parse_dates=date_cols)
     elif layer_config.suffix == ".json":
-        df = pd.read_json(layer_config)
+        df = pd.read_json(layer_config, convert_dates=date_cols)
     else:
         raise ValueError("Unexpected file format %s", layer_config.suffix)
 
