@@ -10,13 +10,13 @@
       "tags": "{{ layer.tags | join(' ')}}",
       "type": "wmts",
       "period": "{{ layer.period }}",
-      "startDate": "{{ layer.start_date | string | truncate(10, end='') }}",
+      "startDate": "{{ layer.start_date.strftime('%Y-%m-%dT%H:%M:%SZ') }}",
       "format": "image/{{ layer.format }}",
       {% if layer.period == "subdaily" %}"availability": {
         "historicalRanges": [
           {
-            "startDate": "{{ layer.temporal_start }}",
-            "endDate": "{{ layer.temporal_end }}",
+            "startDate": "{{ layer.temporal_start.strftime('%Y-%m-%dT%H:%M:%SZ') }}",
+            "endDate": "{{ layer.temporal_end.strftime('%Y-%m-%dT%H:%M:%SZ') }}",
             "dateInterval": "{{ layer.date_interval }}"
           }
         ]
