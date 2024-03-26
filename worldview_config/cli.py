@@ -41,6 +41,7 @@ you wish to merge.""",
         ),
     ],
 ):
+    """Merge one set of config files into another."""
     merge_config(new_root=new_root, target_root=target_root)
 
 
@@ -59,6 +60,7 @@ def render(
         ),
     ] = Path.cwd(),
 ):
+    """Render templates from a layer configuration file."""
     with open(layer_config) as fp:
         layers = models.LayerConfigs.model_validate_json(fp.read())
     render_templates(target=target, layers=layers)
