@@ -80,7 +80,7 @@ def merge_config(target_root: Path, new_root: Path):
         for fname in files:
             new_path = Path(root, fname)
             target_path = Path(target_root, new_path.relative_to(new_root))
-            target_path.parent.mkdir(exist_ok=True)
+            target_path.parent.mkdir(exist_ok=True, parents=True)
             for category, subpath in sub_paths.items():
                 if subpath in str(new_path):
                     if target_path.exists():
