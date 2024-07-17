@@ -23,14 +23,18 @@
           "matrixSet": "{{ layer.matrix_set }}",
           "source": "{{ layer.source_name }}"
         },
-        "arctic": {
-          "matrixSet": "{{ layer.matrix_set }}",
-          "source": "{{ layer.source_name }}"
-        },
-        "antarctic": {
-          "matrixSet": "{{ layer.matrix_set }}",
-          "source": "{{ layer.source_name }}"
-        }
+        {% if layer.arctic_matrix_set is not none %}:{
+          "arctic": {
+            "matrixSet": "{{ layer.arctic_matrix_set }}",
+            "source": "{{ layer.arctic_source_name }}"
+          },
+        },{% endif %},
+        {% if layer.antarctic_matrix_set is not none %}:{
+          "antarctic": {
+            "matrixSet": "{{ layer.antarctic_matrix_set }}",
+            "source": "{{ layer.antarctic_source_name }}"
+          },
+        },{% endif %}
       }
     }
   }
