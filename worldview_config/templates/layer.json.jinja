@@ -27,12 +27,10 @@
           "matrixSet": "{{ layer.arctic_matrix_set }}",
           "source": "{{ layer.arctic_source_name }}"
         },
-        {% if layer.antarctic_matrix_set and layer.antarctic_source_name %}
         "antarctic": {
           "matrixSet": "{{ layer.antarctic_matrix_set }}",
           "source": "{{ layer.antarctic_source_name }}"
         }
-        {% endif %}
       }
     }
   }
