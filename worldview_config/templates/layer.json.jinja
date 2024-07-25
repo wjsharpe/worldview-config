@@ -19,7 +19,7 @@
         "id": "{{ layer.colormap_id }}"
       },{% endif %}
       "projections": {
-        {% if layer.matrix_set is not noe and layer.source_name is not none %}
+        {% if layer.matrix_set is not none and layer.source_name is not none %}
         "geographic": {
           "matrixSet": "{{ layer.matrix_set }}",
           "source": "{{ layer.source_name }}"
