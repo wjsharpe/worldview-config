@@ -19,10 +19,12 @@
         "id": "{{ layer.colormap_id }}"
       },{% endif %}
       "projections": {
+        {% if layer.matrix_set and layer.source_name %}
         "geographic": {
           "matrixSet": "{{ layer.matrix_set }}",
           "source": "{{ layer.source_name }}"
         },
+        {% endif %}
         "arctic": {
           "matrixSet": "{{ layer.arctic_matrix_set }}",
           "source": "{{ layer.arctic_source_name }}"
