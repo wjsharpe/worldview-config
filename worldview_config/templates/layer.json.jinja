@@ -19,22 +19,7 @@
         "id": "{{ layer.colormap_id }}"
       },{% endif %}
       "projections": {
-        "geographic": {
-          "matrixSet": "{{ layer.matrix_set }}",
-          "source": "{{ layer.source_name }}"
-        }
-        {% if layer.arctic_matrix_set is not none and layer.arctic_source_name is not none %}
-        ,"arctic": {
-          "matrixSet": "{{ layer.arctic_matrix_set }}",
-          "source": "{{ layer.arctic_source_name }}"
-        }
-        {% endif %}
-        {% if layer.antarctic_matrix_set is not none and layer.antarctic_source_name is not none %}
-        ,"antarctic": {
-          "matrixSet": "{{ layer.antarctic_matrix_set }}",
-          "source": "{{ layer.antarctic_source_name }}"
-        }
-        {% endif %}
+       {{ layer.projection }}
       }
     }
   }

@@ -12,12 +12,7 @@ class LayerConfig(BaseModel):
     title: str
     format: str
     colormap_id: str
-    matrix_set: str
-    source_name: str
-    arctic_matrix_set: str | None = Field(default=None)
-    arctic_source_name: str | None = Field(default=None)
-    antarctic_matrix_set: str | None = Field(default=None)
-    antarctic_source_name: str | None = Field(default=None)
+    projection: dict
     start_date: datetime
     group: str = Field(default="overlays")
     description: str = Field(default="")
