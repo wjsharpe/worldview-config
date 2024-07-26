@@ -21,11 +21,10 @@
      "projections": {
         {% for key, value in layer.projections.items() %}
           "{{ key }}": {
-                    "matrixSet": "{{ value.matrixSet }}",
-                    "source": "{{ value.source }}"
-          }{% if not loop.last %},{% endif %}
+              "matrixSet": "{{ value.matrixSet }}",
+              "source": "{{ value.source }}"
+            }{% if not loop.last %},{% endif %}
         {% endfor %}
-        }
       }
     }
   }
