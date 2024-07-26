@@ -20,8 +20,7 @@
       },{% endif %}
      "projections": {
         "geographic": {
-          "matrixSet": "{{ layer.projections.geographic.matrixSet }}",
-          "source": "SIPS:geographic"
+          {{ layer.projections.geographic}}
         }
       }
     }
