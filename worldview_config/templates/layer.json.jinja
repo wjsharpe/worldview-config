@@ -18,21 +18,11 @@
       {% if layer.colormap_id is not none %}"palette": {
         "id": "{{ layer.colormap_id }}"
       },{% endif %}
-      "projections": {
-       {
-         "geographic": {
+     "projections": {
+        "geographic": {
           "matrixSet": "EPSG4326_1km",
           "source": "SIPS:geographic"
-        },
-        "arctic": {
-          "matrixSet": "EPSG3413_1km",
-          "source": "SIPS:arctic"
-        },
-        "antarctic": {
-          "matrixSet": "EPSG3031_1km",
-          "source": "SIPS:antarctic"
         }
-       }
       }
     }
   }
