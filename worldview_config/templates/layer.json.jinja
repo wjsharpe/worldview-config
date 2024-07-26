@@ -20,7 +20,7 @@
       },{% endif %}
      "projections": {
         "geographic": {
-          "matrixSet": "EPSG4326_1km",
+          "matrixSet": "{{ layer.projections.geographic.matrixSet }}",
           "source": "SIPS:geographic"
         }
       }
