@@ -12,7 +12,7 @@ class LayerConfig(BaseModel):
     title: str
     format: str
     colormap_id: str
-    projection: dict
+    projections: dict
     start_date: datetime
     group: str = Field(default="overlays")
     description: str = Field(default="")
