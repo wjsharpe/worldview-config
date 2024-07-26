@@ -19,8 +19,12 @@
         "id": "{{ layer.colormap_id }}"
       },{% endif %}
      "projections": {
-        "geographic": {
-          {{ layer.projections.geographic}}
+        {% for key, value in layer.projections.items() %}
+          "{{ key }}": {
+                    "matrixSet": "{{ value.matrixSet }}",
+                    "source": "{{ value.source }}"
+          }{% if not loop.last %},{% endif %}
+        {% endfor %}
         }
       }
     }
