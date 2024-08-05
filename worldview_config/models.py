@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field, RootModel
 
 class Projection(BaseModel):
     source: str
-    matrix_set: str
+    matrixSet: str
 
 class LayerConfig(BaseModel):
     id: str
